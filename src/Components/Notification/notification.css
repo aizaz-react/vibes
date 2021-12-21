@@ -1,0 +1,21 @@
+.notification-container {
+  width: 85vw;
+  height: 90px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.notification-main-container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.notification-container img {
+  height: 45px;
+  align-items: center;
+  margin-left: 15px;
+  opacity: 0.8;
+}

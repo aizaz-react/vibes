@@ -1,0 +1,52 @@
+.escort-button-group-container {
+}
+
+.escort-group {
+  display: flex;
+  background: #f2f2f2;
+  height: 45px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.escort-group p {
+  font-size: 1.4rem;
+  color: #a5a5a5;
+  font-weight: 600;
+}
+
+.escort-group .escort-section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 45px;
+  align-items: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.escort-group .sexworker-section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 45px;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.selected-escort {
+  background: #577954;
+}
+.selected-escort p {
+  color: white;
+}
+.selected-sexworker {
+  background: #173151;
+}
+.selected-sexworker p {
+  color: white;
+}

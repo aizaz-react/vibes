@@ -1,0 +1,268 @@
+.auth-model-displacement {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+}
+
+.top-close {
+  display: flex;
+  width: 92%;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.top-close img {
+  width: 15px;
+}
+
+.info-logo {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.info-logo img {
+  width: 100px;
+  height: 100%;
+}
+
+.phone-input {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.phone-input-error {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.phone-input .react-tel-input .form-control {
+  font-size: 1.7rem;
+
+  border-radius: 1.5rem;
+  padding-left: 8rem;
+  width: 80vw;
+  height: 5.5rem;
+  color: #919191;
+}
+.phone-input-error .react-tel-input .form-control {
+  font-size: 1.7rem;
+
+  border-radius: 1.5rem;
+  padding-left: 8rem;
+  width: 80vw;
+  height: 5.5rem;
+  color: #919191;
+  border: 1px solid #ff0000;
+}
+
+.phone-input .flag-dropdown .up {
+  transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 320px) {
+  .phone-input .react-tel-input .form-control {
+    font-size: 1.7rem;
+
+    border-radius: 10px;
+    padding-left: 55px;
+
+    height: 5.5rem;
+    width: 260px;
+  }
+}
+@media only screen and (max-width: 280px) {
+  .phone-input .react-tel-input .form-control {
+    font-size: 17px;
+
+    border-radius: 15px;
+    padding-left: 55px;
+
+    height: 40px;
+    width: 230px;
+  }
+}
+@media only screen and (width: 768px) {
+  .phone-input .react-tel-input .form-control {
+    font-size: 17px;
+
+    border-radius: 10px;
+    padding-left: 55px;
+
+    height: 45px;
+    width: 500px;
+  }
+}
+
+.phone-input .react-tel-input .flag-dropdown {
+  border-radius: 15px 0 0 15px;
+}
+.phone-input-error .react-tel-input .flag-dropdown {
+  border-radius: 15px 0 0 15px;
+  border: 1px solid #ff0000;
+  border-right: none;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+  border-radius: 15px 0 0 15px !important;
+}
+
+.react-tel-input .flag-dropdown.open {
+  border-radius: 15px 0 0 15px !important;
+}
+
+.phone-input .react-tel-input .selected-flag {
+  width: 70px;
+  background: white;
+  border-radius: 15px 0 0 15px;
+}
+.phone-input-error .react-tel-input .selected-flag {
+  width: 70px;
+  background: white;
+  border-radius: 15px 0 0 15px;
+}
+
+.phone-input .react-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #555;
+}
+.phone-input-error .react-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #555;
+}
+
+.phone-input .react-tel-input .flag {
+  width: 16px;
+  height: 11px;
+  transform: scale(1.5);
+  margin-left: 1rem;
+  border-radius: 0.1rem;
+}
+.phone-input-error .react-tel-input .flag {
+  width: 16px;
+  height: 11px;
+  transform: scale(1.5);
+  margin-left: 1rem;
+  border-radius: 0.1rem;
+}
+
+/* bottom lines section */
+
+.bottom-outer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+}
+
+.bottom-section {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+.bottom-line {
+  width: 55px;
+  height: 7px;
+  background: #ffffff;
+  border-radius: 25px;
+}
+.bottom-line.selected {
+  background: #577954;
+}
+
+.bottom-tag-line {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bottom-tag-line p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #919191;
+}
+.bottom-tag-line p span {
+  color: #577954;
+}
+
+/* new section */
+
+.auth-model {
+  width: 90vw;
+  height: 330px;
+  background: #f6ece3;
+  border-radius: 15px;
+  position: relative;
+}
+
+.logo-close-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  position: relative;
+}
+.cross-right {
+  position: absolute;
+  right: 20px;
+}
+.back-left {
+  position: absolute;
+  left: 20px;
+}
+
+.phone-text p {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 20px;
+  color: #919191;
+  margin-top: 25px;
+}
+
+.phone-text p span {
+  color: #577954;
+  font-weight: bold;
+}
+
+.login-button {
+  width: 80vw;
+  height: 55px;
+  border: none;
+  background-color: #f6ece3;
+  color: #919191;
+  font-weight: bold;
+  padding: 12px 28px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 15px;
+
+  border: 2px solid #919191;
+}
+
+.circular-progress {
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}

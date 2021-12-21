@@ -1,0 +1,118 @@
+.button-group-container {
+}
+.gender-group {
+  display: flex;
+  background: #f2f2f2;
+  height: 45px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.gender-group p {
+  font-size: 1.4rem;
+  color: #a5a5a5;
+  font-weight: 600;
+}
+.gender-group .female-section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 45px;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.gender-group .male-section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 45px;
+  align-items: center;
+}
+
+.selected-gender {
+  background: #d99e7e;
+}
+.selected-gender p {
+  color: white;
+}
+
+.gender-group .divers-section {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 45px;
+}
+
+.or-container {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  top: 0;
+
+  justify-content: space-evenly;
+  pointer-events: none;
+  background: none !important;
+}
+.or-container .or-line {
+  width: 7px;
+  height: 45px;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.inside-or-line {
+  width: 1px;
+  height: 45px;
+  background: #a5a5a5;
+}
+
+.or-circle {
+  width: 20px;
+  height: 20px;
+  background: #f2f2f2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.or-circle-orange {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.or-circle img {
+  width: 25px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.or-circle-orange img {
+  width: 25px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}

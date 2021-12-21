@@ -1,0 +1,27 @@
+/* selected profile date */
+
+.grid-container-selected-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+
+  width: 100%;
+  height: calc(100vh - 150px);
+
+  gap: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 25px;
+}
+.selected-profile-item {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.selected-profile-item img {
+  width: 100%;
+  height: calc(100vw * 0.38);
+  object-fit: cover;
+  border-radius: 10px;
+}

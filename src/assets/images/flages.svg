@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2018 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="295.548mm" height="185.388mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5573.65 3496.18"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str2 {stroke:white;stroke-width:997.94;stroke-miterlimit:22.9256}
+    .str4 {stroke:#001340;stroke-width:37.72;stroke-miterlimit:22.9256}
+    .str5 {stroke:#E8BA00;stroke-width:37.72;stroke-miterlimit:22.9256}
+    .str3 {stroke:#C8102E;stroke-width:598.76;stroke-miterlimit:22.9256}
+    .str0 {stroke:white;stroke-width:598.76;stroke-miterlimit:22.9256}
+    .str1 {stroke:#C8102E;stroke-width:399.18;stroke-miterlimit:22.9256}
+    .fil2 {fill:none}
+    .fil1 {fill:black}
+    .fil0 {fill:#012169}
+    .fil3 {fill:#DD0000}
+    .fil4 {fill:#FFCE00}
+   ]]>
+  </style>
+    <clipPath id="id0">
+     <path d="M768.59 18.86l4582.54 0c112.01,0 203.66,91.65 203.66,203.66l0 2586.5c0,112.01 -91.65,203.66 -203.66,203.66l-4582.54 0c-112.01,0 -203.66,-91.65 -203.66,-203.66l0 -2586.5c0,-112.01 91.64,-203.66 203.66,-203.66z"/>
+    </clipPath>
+     <clipPath id="id1">
+      <path d="M564.93 222.52l0 2586.5c0,112.01 91.64,203.66 203.66,203.66l4582.54 0c112.01,0 203.66,-91.65 203.66,-203.66l0 -2586.5c0,-111.96 -91.57,-203.57 -203.51,-203.66l-4582.84 0c-111.94,0.08 -203.51,91.69 -203.51,203.66z"/>
+     </clipPath>
+     <clipPath id="id2">
+      <path d="M768.59 18.86l4582.54 0c112.01,0 203.66,91.65 203.66,203.66l0 2586.5c0,112.01 -91.65,203.66 -203.66,203.66l-4582.54 0c-112.01,0 -203.66,-91.65 -203.66,-203.66l0 -2586.5c0,-112.01 91.64,-203.66 203.66,-203.66z"/>
+     </clipPath>
+    <clipPath id="id3">
+     <path d="M222.52 483.5l4582.54 0c112.01,0 203.66,91.65 203.66,203.66l0 2586.5c0,112.01 -91.65,203.66 -203.66,203.66l-4582.54 0c-112.01,0 -203.66,-91.65 -203.66,-203.66l0 -2586.5c0,-112.01 91.64,-203.66 203.66,-203.66z"/>
+    </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2440003508384">
+   <g>
+   </g>
+   <g style="clip-path:url(#id0)">
+    <g id="_2440003510080">
+     <g>
+     </g>
+    </g>
+    <g style="clip-path:url(#id1)">
+     <g id="_2440003509888">
+      <polygon class="fil0" points="564.93,18.86 564.93,3012.68 5554.79,3012.68 5554.79,18.86 "/>
+      <g>
+       <path class="fil1" d="M564.93 18.86l4989.86 2993.82 -4989.86 -2993.82zm4989.86 0l-4989.86 2993.82 4989.86 -2993.82zm0 0l0 0 0 0z"/>
+       <path id="1" class="fil2 str0" d="M564.93 18.86l4989.86 2993.82m0 -2993.82l-4989.86 2993.82m4989.86 -2993.82l0 0 0 0z"/>
+      </g>
+      <line class="fil2" x1="3059.86" y1="1515.77" x2="5554.79" y2= "3012.68" />
+      <line class="fil2 str1" x1="3059.86" y1="1515.77" x2="5554.79" y2= "3012.68" />
+      <g>
+       <path class="fil1" d="M3059.86 18.86l0 2993.82 0 -2993.82zm-2494.93 1496.91l4989.86 0 -4989.86 0zm0 0l0 0 0 0z"/>
+       <path id="1" class="fil2 str2" d="M3059.86 18.86l0 2993.82m-2494.93 -1496.91l4989.86 0m-4989.86 0l0 0 0 0z"/>
+      </g>
+      <g>
+       <path class="fil1" d="M3059.86 18.86l0 2993.82 0 -2993.82zm-2494.93 1496.91l4989.86 0 -4989.86 0zm0 0l0 0 0 0z"/>
+       <path id="1" class="fil2 str3" d="M3059.86 18.86l0 2993.82m-2494.93 -1496.91l4989.86 0m-4989.86 0l0 0 0 0z"/>
+      </g>
+     </g>
+    </g>
+    <g style="clip-path:url(#id2)">
+     <polygon class="fil2" points="564.93,18.86 564.93,3012.68 5554.79,3012.68 5554.79,18.86 "/>
+    </g>
+   </g>
+   <path class="fil2 str4" d="M768.59 18.86l4582.54 0c112.01,0 203.66,91.65 203.66,203.66l0 2586.5c0,112.01 -91.65,203.66 -203.66,203.66l-4582.54 0c-112.01,0 -203.66,-91.65 -203.66,-203.66l0 -2586.5c0,-112.01 91.64,-203.66 203.66,-203.66z"/>
+   <g>
+   </g>
+   <g style="clip-path:url(#id3)">
+    <g>
+     <g>
+      <rect id="black_stripe" class="fil1" x="18.94" y="483.5" width="4989.69" height="2993.82"/>
+      <rect id="red_stripe" class="fil3" x="18.94" y="1481.44" width="4989.69" height="1995.88"/>
+      <rect id="gold_stripe" class="fil4" x="18.94" y="2479.38" width="4989.69" height="997.94"/>
+     </g>
+    </g>
+   </g>
+   <path class="fil2 str5" d="M222.52 483.5l4582.54 0c112.01,0 203.66,91.65 203.66,203.66l0 2586.5c0,112.01 -91.65,203.66 -203.66,203.66l-4582.54 0c-112.01,0 -203.66,-91.65 -203.66,-203.66l0 -2586.5c0,-112.01 91.64,-203.66 203.66,-203.66z"/>
+  </g>
+ </g>
+</svg>

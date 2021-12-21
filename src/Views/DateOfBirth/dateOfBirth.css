@@ -1,0 +1,106 @@
+.date-of-birth input {
+  width: 1.5rem;
+  height: 2.5rem;
+  outline: 0;
+  border: none;
+  border-bottom: 0.2rem solid #707070;
+  color: #707070;
+  margin-bottom: 1.3rem;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-bottom: 0.2rem;
+  font-weight: bold;
+}
+.date-of-birth-error input {
+  width: 1.5rem;
+  height: 2.5rem;
+  outline: 0;
+  border: none;
+  border-bottom: 0.2rem solid #707070;
+  color: #707070;
+  margin-bottom: 1.3rem;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-bottom: 0.2rem;
+  font-weight: bold;
+}
+
+.date-slash {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  bottom: 1.7rem;
+  color: #707070;
+}
+
+@media only screen and (max-width: 280px) {
+  .date-of-birth input {
+    width: 15px;
+    height: 25px;
+    outline: 0;
+    border: none;
+    border-bottom: 1px solid #707070;
+    color: #707070;
+    margin-bottom: 13px;
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 2px;
+  }
+  .date-of-birth-error input {
+    width: 15px;
+    height: 25px;
+    outline: 0;
+    border: none;
+    border-bottom: 1px solid #707070;
+    color: #707070;
+    margin-bottom: 13px;
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 2px;
+  }
+}
+
+.date-of-birth {
+  background: white;
+  height: 6.5rem;
+  width: 90%;
+
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.date-of-birth-error {
+  background: white;
+  height: 72px;
+  width: 90%;
+
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  border: 2px solid red;
+}
+
+.registration-button-dob {
+  width: 50vw;
+
+  border: none;
+  background-color: #d99e7e;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.auth-model-dob {
+  width: 90vw;
+  height: 280px;
+  background: #f6ece3;
+  border-radius: 15px;
+
+  position: relative;
+}

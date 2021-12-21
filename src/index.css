@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --darkGray: #707070;
+  --lightGray: #919191;
+  --toastBackground: #f9f9ea;
+  --toastGreen: #577954;
+  --errorAlertBackground: #f9f6e7;
+  --text-box-background: #f2f2f2;
+  --app-orange: #d99e7e;
+  --text-color: #a7a7a7;
+
+  --model-background: #f6e7e2;
+  --border-color: #a9a9a9;
+  --red-color: #ff0000;
+
+  --line-color: rgb(214, 210, 207);
+}
+
+* {
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("./assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+
+  overscroll-behavior-y: contain;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  direction: ltr;
+}
+.div-background {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  justify-content: center;
+  align-items: center;
+  background: url("./assets/images/blurred_bg.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media only screen and (max-height: 790px) {
+  .div-background {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+    background: url("./assets/images/blurred_bg.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* logo section */
+
+.logo-container {
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.logo-image {
+  width: 90px;
+  height: 100%;
+}

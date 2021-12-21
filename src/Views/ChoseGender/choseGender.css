@@ -1,0 +1,115 @@
+.gender-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.gender-buttons .MuiButtonGroup-root button {
+  width: 26.66vw;
+  height: 55px;
+}
+
+.gender-buttons .MuiButtonGroup-root button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.gender-buttons .MuiButtonGroup-root button:nth-child(3) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* gender button error section */
+
+.gender-buttons-error {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+.gender-buttons-error .MuiButtonGroup-root button {
+  width: 26.66vw;
+  height: 45px;
+}
+
+.gender-buttons-error .MuiButtonGroup-root button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid red;
+}
+.gender-buttons-error .MuiButtonGroup-root button:nth-child(2) {
+  border: 1px solid red;
+}
+.gender-buttons-error .MuiButtonGroup-root button:nth-child(3) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid red;
+}
+
+/* bottom outer gender */
+
+.bottom-outer-gender {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+}
+
+.bottom-section-gender {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+}
+.bottom-line-gender {
+  width: 55px;
+  height: 7px;
+  background: #ffffff;
+  border-radius: 25px;
+}
+.bottom-line-gender.selected {
+  background: #577954;
+}
+
+/* message box */
+
+#triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 15px solid #6f8b69;
+  opacity: 0.9;
+
+  position: absolute;
+  top: -10px;
+}
+
+.inside-message {
+  height: 30px;
+  background: #6f8b69;
+  width: 60vw;
+  border-radius: 25px;
+  position: relative;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inside-message p {
+  color: white;
+  font-size: 14px;
+}
+.outside-message {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  top: 57px;
+}
+.outside-message-hidden {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  top: 57px;
+}

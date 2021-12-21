@@ -1,0 +1,486 @@
+.bank-model-displacement {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+}
+
+.bank-model {
+  width: 90vw;
+  box-sizing: border-box;
+  background: var(--model-background);
+  border-radius: 15px;
+  padding: 0 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.bank-title p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+}
+
+.message-section {
+  margin-top: 1.6rem;
+}
+
+.message-section p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--lightGray);
+  line-height: 2rem;
+}
+
+.rate-head-line {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--lightGray);
+}
+.info-id-head-line {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+}
+
+.straight-line {
+  width: 100%;
+  display: flex;
+  height: 1px;
+  background: rgb(214, 210, 207);
+  margin-top: 1.5rem;
+}
+
+.record-video-heading {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.record-video-heading p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* recording frame section */
+
+.recording-frame-view {
+  display: flex;
+  background: chartreuse;
+  margin-top: 1.5rem;
+  height: 75%;
+  box-sizing: border-box;
+}
+
+.confirm-head-line {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+  display: flex;
+  justify-content: center;
+}
+
+.experience-head-line {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* expreience section */
+
+.experience-slider {
+  margin-top: 2rem;
+}
+
+.experience-slider .MuiSlider-root {
+  color: var(--toastGreen);
+}
+
+.experience-slider .MuiSlider-markLabel {
+  top: -0.2rem;
+  color: var(--darkGray) !important;
+  opacity: 0.8;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.experience-slider .MuiSlider-mark {
+  display: none;
+}
+
+.experience-slider .MuiSlider-rail {
+  height: 5px;
+  border-radius: 15px;
+  background: white;
+}
+
+.experience-slider .MuiSlider-track {
+  height: 5px;
+  border-radius: 15px;
+}
+
+.experience-slider .MuiSlider-thumb {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+}
+
+.experience-slider .MuiSlider-markLabel[data-index="0"] {
+  left: 7% !important;
+}
+.experience-slider .MuiSlider-markLabel[data-index="2"] {
+  left: 95% !important;
+}
+
+.expreince-level-text {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  align-items: center;
+  height: 40vh;
+}
+
+.expreince-level-text p {
+  font-size: 6rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.div-background .linear-background {
+  background: rgb(244, 230, 222);
+  background: linear-gradient(
+    rgba(244, 230, 222, 1) 0%,
+    rgba(255, 255, 255, 1) 70%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+/* video section */
+
+.videoInsert {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  border-radius: 10px;
+}
+
+.videoInsertDemo {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+.video-container {
+  display: flex;
+  width: 100%;
+
+  height: 60vh;
+  margin-top: 1rem;
+  justify-content: center;
+  position: relative;
+}
+
+.record-button-position {
+  position: absolute;
+  bottom: 5px;
+  z-index: 2;
+}
+
+.record-scheme-container {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 70px;
+  justify-content: space-evenly;
+  z-index: 2;
+}
+
+.look-camera-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+.look-camera-text p:last-child {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+  text-align: center;
+  line-height: 7rem;
+}
+.look-camera-text p {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: var(--darkGray);
+  text-align: center;
+  line-height: 7rem;
+}
+
+.transperent-background {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  border-radius: 10px;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* recording timer section */
+
+.recording-timer {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background: white;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+  z-index: 1;
+  top: 20px;
+}
+.recording-timer p {
+  font-size: 1.8rem;
+  color: red;
+  font-weight: bold;
+}
+.recording-off {
+  display: none;
+}
+
+/* receipt section */
+
+.vibes-receipt-id p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+}
+
+.vibes-acount-balance {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.balance-headline p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--darkGray);
+}
+
+.balance-amout {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.balance-amout p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--toastGreen);
+}
+
+.balance-amout img {
+  width: 1.6rem;
+}
+
+/* curreltly date section */
+
+.currently-dates {
+  margin-top: 1rem;
+}
+
+.currently-dates-title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.currently-dates-title p {
+  font-size: 1.8rem;
+  color: var(--darkGray);
+  font-weight: bold;
+}
+
+.currently-dates-component {
+  max-height: 200px;
+
+  overflow: auto;
+}
+
+/* indecator item */
+.nav-indecator {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.nav-indecator .ind-item {
+  display: flex;
+  width: 25%;
+  height: 1rem;
+  background: var(--toastGreen);
+  border-radius: 100px;
+}
+
+/* demo video recording section */
+
+.demo-video-headline {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.demo-video-headline p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--lightGray);
+}
+
+/* play button section */
+
+.controle-button-section {
+  position: absolute;
+  top: 45%;
+  background: white;
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+}
+
+.controle-button-section img {
+  width: 2.8rem;
+}
+
+.reload-record-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 45%;
+  box-sizing: border-box;
+}
+.reload-record-container .reload-icon {
+  display: flex;
+  width: 6rem;
+  height: 6rem;
+  background: white;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.reload-record-container .reload-icon img {
+  width: 3rem;
+}
+.reload-record-container .record-icon {
+  display: flex;
+
+  height: 6rem;
+  width: 10rem;
+  background: white;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.reload-record-container .record-icon p {
+  font-size: 2rem;
+  color: var(--toastGreen);
+  font-weight: 600;
+}
+
+.video-end-button {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  padding: 1rem;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.video-end-button img {
+  width: 1.4rem;
+}
+
+/* recorded vidoe section */
+
+.recorded-video-container {
+  display: flex;
+  position: absolute;
+  width: 80%;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 40%;
+}
+.recorded-video-container .recorded-video-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.recorded-video-container .recorded-video-reload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.recorded-video-container .recorded-video-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.recorded-video-play img {
+  width: 30px;
+  height: 30px;
+}
+.recorded-video-reload img {
+  width: 30px;
+  height: 30px;
+}
+
+.recorded-video-save p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #577954;
+}

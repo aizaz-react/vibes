@@ -1,0 +1,205 @@
+.auth-model-delete-profile {
+  width: 90vw;
+  height: 330px;
+  background: #f6ece3;
+  border-radius: 15px;
+
+  position: relative;
+}
+
+.auth-model-delete-profile-error {
+  width: 90vw;
+  height: 360px;
+  background: #f6ece3;
+  border-radius: 15px;
+
+  position: relative;
+}
+
+.delete-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.delete-buttons .MuiButtonGroup-root button {
+  width: 40vw;
+  height: 55px;
+}
+.delete-buttons .MuiButtonGroup-root button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.delete-buttons .MuiButtonGroup-root button:nth-child(2) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* dlete button error */
+
+.delete-buttons-error {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.delete-buttons-error .MuiButtonGroup-root button {
+  width: 40vw;
+  height: 55px;
+}
+.delete-buttons-error .MuiButtonGroup-root button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid red;
+}
+.delete-buttons-error .MuiButtonGroup-root button:nth-child(2) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid red;
+}
+
+/* gtc section */
+
+.delete-user-gtc {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-left: 6%;
+  padding-right: 4%;
+  margin-top: 10px;
+}
+.delete-user-gtc p {
+  color: #9e9e9e;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.delete-user-gtc input {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  border: 5px solid #9e9e9e;
+}
+
+/* gtc error section */
+
+.delete-user-gtc-error {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-left: 6%;
+  padding-right: 4%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.delete-user-gtc-error p {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+.delete-user-gtc-error input {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  border: 5px solid #9e9e9e;
+}
+
+/* delete user message sctions */
+
+.inside-message-delete-user {
+  height: 30px;
+  background: #6f8b69;
+  width: 60vw;
+  border-radius: 25px;
+  position: relative;
+  opacity: 0.9;
+}
+
+.inside-message-delete-user p {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  color: white;
+  font-size: 13px;
+}
+
+.outside-message-delete-user {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  top: 10px;
+}
+
+#triangle-up-delete-user {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 15px solid #6f8b69;
+  opacity: 0.9;
+  position: absolute;
+  top: -10px;
+}
+
+/* message hidden section */
+
+.inside-message-delete-user-hidden {
+  height: 30px;
+  background: #6f8b69;
+  width: 60vw;
+  border-radius: 25px;
+  position: relative;
+  opacity: 0.9;
+  display: none;
+}
+#triangle-up-delete-user-none {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 15px solid #6f8b69;
+  opacity: 0.9;
+  position: absolute;
+  top: -10px;
+  display: none;
+}
+
+.outside-message-delete-user-hidden {
+  display: none;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  top: 10px;
+}
+
+@media only screen and (max-width: 320px) {
+  .auth-model-delete-profile {
+    width: 90vw;
+    height: 350px;
+    background: #f6ece3;
+    border-radius: 15px;
+
+    position: relative;
+  }
+  .auth-model-delete-profile-error {
+    width: 90vw;
+    height: 380px;
+    background: #f6ece3;
+    border-radius: 15px;
+
+    position: relative;
+  }
+  .delete-user-gtc p {
+    color: #9e9e9e;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .delete-user-gtc-error p {
+    color: red;
+    font-size: 11px;
+    font-weight: bold;
+  }
+}
