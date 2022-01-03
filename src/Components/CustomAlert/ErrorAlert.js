@@ -8,7 +8,7 @@ const ErrorAlert = (props) => {
       className="error-alert-container-outside"
       style={{ display: props.show ? "flex" : "none" }}
     >
-      <img src={infoIcon} alt="error-icon" />
+      <img src={infoIcon} alt={infoIcon} />
       <p>{props.message}</p>
     </div>
   );

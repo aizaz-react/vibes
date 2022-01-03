@@ -9,6 +9,7 @@ import reloadAgain from "../../../assets/images/reloadVideo.svg";
 import { uploadFile, updateVideoUrl } from "../../../Utlity/FirebaseFunction";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useLocation } from "react-router-dom";
+import ErrorAlert from "../../../Components/CustomAlert/ErrorAlert";
 
 let timerInterval;
 let sourceStream;
@@ -28,6 +29,7 @@ const VideoRecording = () => {
   const [playingVideo, setPlayingVideo] = useState(false);
   const [playingVideoControls, setPlayingVideoControls] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [cameraPermission, setCameraPermission] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,7 +63,15 @@ const VideoRecording = () => {
     }
   }, [timer]);
 
+  navigator.permissions.query({ name: "camera" }).then((permissionStatus) => {
+    setCameraPermission(permissionStatus.state);
+    permissionStatus.onchange = function () {
+      window.location.reload();
+    };
+  });
+
   function handelRecording() {
+    if (cameraPermission === "denied") return;
     if (showRecordingScreen) {
       setstartRecording(true);
 
@@ -74,7 +84,6 @@ const VideoRecording = () => {
         blobs_recorded.push(e.data);
       });
       media_recorder.start(1000);
-
       timerInterval = setInterval(() => {
         setTimer((pre) => pre - 1);
       }, 1000);
@@ -121,6 +130,7 @@ const VideoRecording = () => {
   }, [videoRef]);
 
   let handelStop = () => {
+    if (cameraPermission === "denied") return;
     const stream = videoReference.srcObject;
     if (stream) {
       const tracks = stream.getTracks();
@@ -182,7 +192,10 @@ const VideoRecording = () => {
         style={{ height: "80vh", position: "relative", padding: "0" }}
       >
         <LogoSection padding={true} closeCamera={handelStop} />
-
+        <ErrorAlert
+          show={cameraPermission === "denied"}
+          message="Please allow camera permissions"
+        />
         <div className="record-video-heading">
           <p>You can record a video up to 15 seconds</p>
         </div>

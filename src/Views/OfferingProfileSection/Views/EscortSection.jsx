@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import infoLog from "../../../assets/images/VibesInfo.svg";
 import closeIcon from "../../../assets/images/delete.svg";
 import backIcon from "../../../assets/images/back.svg";
+import image from "../../../assets/images/model1.jpg";
 import ThreePhaseButton from "../Components/ThreePhaseButton";
 import WorkerProfile from "../Components/WorkerProfile";
 import WorkerVideo from "../Components/WorkerVideo";
@@ -17,6 +18,8 @@ import NavigationView from "../Components/NavigationView";
 import { useHistory } from "react-router";
 import LogoSection from "../Components/LogoSection";
 import KeepCareShare from "../Components/KeepCareShare";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 
 import {
   updateImageUrl,
@@ -27,11 +30,14 @@ import {
 const EscortSection = () => {
   let history = useHistory();
   const [workerType, setWorkerType] = useState("Escort");
-  const [checkShare, setCheckShare] = useState("");
+  const [checkShareID, setCheckShare] = useState("No");
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
 
+  const [rateByHour, setRate] = useState(0);
+  const [postalCode, setPostalCode] = useState(0);
+  const [address, setAddress] = useState("");
   let handelEscort = (e) => {
     setWorkerType(e);
     history.push("/escort-section");
@@ -41,13 +47,29 @@ const EscortSection = () => {
     history.push("/sexworker-section");
   };
 
-  let handelNext = () => {
-    history.push("/bankdetails-section");
+  let handelNext = async () => {
+    let userId = sessionStorage.getItem("userId");
+    let ecsortData = {
+      checkShareID,
+      workerType,
+      rateByHour,
+      postalCode,
+      address,
+    };
+    try {
+      const userRef = doc(db, "users", userId);
+
+      await updateDoc(userRef, {
+        ecsortData,
+      });
+      history.push("/bankdetails-section");
+    } catch (error) {
+      console.log(error);
+    }
   };
   let handelValue = (v) => {
     setCheckShare(v);
   };
-
   let hanelImageUpload = async (e) => {
     let file = e.target.files[0];
     if (file) {
@@ -118,39 +140,39 @@ const EscortSection = () => {
         <div style={{ marginTop: "1.5rem" }}>
           <OutCallShare checkValue={(value) => handelValue(value)} />
         </div>
-        <div style={{ display: checkShare === "Yes" ? "flex" : "none" }}>
+        <div style={{ display: checkShareID === "Yes" ? "flex" : "none" }}>
           <KeepCareShare />
         </div>
         <div className="straight-line"></div>
 
         <div style={{ marginTop: "2rem" }}>
           <WorkerProfile
-            title="Anna [Sex Worker]"
+            title="Anna [Escort]"
             time="Beginsning 20's"
             rate="20$/Hour, Incall"
             location="02176, Berlin - Incall"
             loading={loading}
-            image={imageUrl}
+            image={imageUrl ? imageUrl : image}
             uploadImage={(e) => hanelImageUpload(e)}
           />
         </div>
         <div style={{ marginTop: "2rem" }}>
           <WorkerVideo
-          // videoUrl={videoUrl}
-          // playVideo={() => handelPlayVideo(videoUrl)}
+            videoUrl={videoUrl}
+            playVideo={() => handelPlayVideo(videoUrl)}
           />
         </div>
         <div style={{ marginTop: "2rem" }}>
           <p className="rate-head-line">Basic Rate Per Hour:</p>
         </div>
         <div style={{ marginTop: "1rem" }}>
-          <RateInput />
+          <RateInput onChange={setRate} placeholder="0$" />
         </div>
         <div style={{ marginTop: "2rem" }}>
           <p className="rate-head-line">Location</p>
         </div>
         <div style={{ marginTop: "1rem" }}>
-          <PostelCode />
+          <PostelCode setAddress={setAddress} setPostalCode={setPostalCode} />
         </div>
 
         <div style={{ marginTop: "2rem" }}>

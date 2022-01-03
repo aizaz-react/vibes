@@ -58,6 +58,9 @@
   border-radius: 10px;
   padding-left: 1rem;
   box-sizing: border-box;
+  margin: 0 auto;
+  left: 5%;
+  z-index: 9999;
 }
 
 .error-alert-container-outside img {

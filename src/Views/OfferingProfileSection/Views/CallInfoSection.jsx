@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import infoLog from "../../../assets/images/VibesInfo.svg";
 import closeIcon from "../../../assets/images/delete.svg";
@@ -18,6 +18,13 @@ import { useHistory } from "react-router";
 import OutCallShare from "../Components/OutCallShare";
 import KeepCareShare from "../Components/KeepCareShare";
 import LogoSection from "../Components/LogoSection";
+import {
+  updateImageUrl,
+  uploadFile,
+  getUserData,
+} from "../../../Utlity/FirebaseFunction";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 
 const CallInfoSection = () => {
   let history = useHistory();
@@ -26,6 +33,13 @@ const CallInfoSection = () => {
   const [callType, setCallType] = useState("Outcall");
 
   const [checkShare, setCheckShare] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
+  const [rate, setRate] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [location, setLocation] = useState("");
+  const [street, setStreet] = useState("");
 
   let handelEscort = (e) => {
     setWorkerType(e);
@@ -36,13 +50,55 @@ const CallInfoSection = () => {
     history.push("/sexworker-section");
   };
 
-  let handelNext = () => {
-    history.push("/bankdetails-section");
+  let handelNext = async () => {
+    let userId = sessionStorage.getItem("userId");
+    let sexWorkerData = {
+      rate,
+      address,
+      postalCode,
+      callType,
+      location,
+      street,
+    };
+    try {
+      const userRef = doc(db, "users", userId);
+
+      await updateDoc(userRef, { sexWorkerData });
+      history.push("/bankdetails-section");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   let handelValue = (v) => {
     setCheckShare(v);
   };
+
+  let getImageAndVideo = async () => {
+    let userId = sessionStorage.getItem("userId");
+    try {
+      let result = await getUserData(userId);
+      if (result) {
+        setImageUrl(result.imageUrl);
+        setVideoUrl(result.videoUrl);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  let handelPlayVideo = (url) => {
+    history.push({
+      pathname: "/record-video",
+      state: {
+        imageUrl: url,
+        fromBack: true,
+      },
+    });
+  };
+
+  useEffect(() => getImageAndVideo(), []);
+
   return (
     <div
       className="div-background"
@@ -89,23 +145,27 @@ const CallInfoSection = () => {
             time="Beginsning 20's"
             rate="20$/Hour, Incall"
             location="02176, Berlin - Incall"
+            image={imageUrl}
           />
         </div>
         <div style={{ marginTop: "2rem" }}>
-          <WorkerVideo />
+          <WorkerVideo
+            videoUrl={videoUrl}
+            playVideo={() => handelPlayVideo(videoUrl)}
+          />
         </div>
         <div style={{ marginTop: "1.5rem" }}>
           <p className="rate-head-line">Basic Rate Per Hour:</p>
         </div>
         <div style={{ marginTop: "1rem" }}>
-          <RateInput />
+          <RateInput onChange={setRate} placeholder="0$" />
         </div>
         <div style={{ marginTop: "1.5rem" }}>
           <p className="rate-head-line">Address:</p>
         </div>
 
         <div style={{ marginTop: "1.5rem" }}>
-          <PostelCode />
+          <PostelCode setAddress={setAddress} setPostalCode={setPostalCode} />
         </div>
         <div
           style={{
@@ -113,7 +173,7 @@ const CallInfoSection = () => {
             display: callType === "Incall" ? "" : "none",
           }}
         >
-          <InfoInput placeholder="Hotel / Bar Name" />
+          <InfoInput onChange={setLocation} placeholder="Hotel / Bar Name" />
         </div>
         <div
           style={{
@@ -121,7 +181,7 @@ const CallInfoSection = () => {
             display: callType === "Incall" ? "" : "none",
           }}
         >
-          <InfoInput placeholder="Street" />
+          <InfoInput onChange={setStreet} placeholder="Street" />
         </div>
 
         <div style={{ marginTop: "2rem" }}>

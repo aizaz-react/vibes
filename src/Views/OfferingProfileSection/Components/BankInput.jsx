@@ -1,13 +1,22 @@
 import React from "react";
 import "./bankComponents.css";
-const BankInput = (props) => {
+const BankInput = ({
+  type,
+  placeholder,
+  onChange,
+  value,
+  onKeyPress,
+  maxLength,
+}) => {
   return (
     <div className="bank-input">
       <input
-        type={props.type}
-        placeholder={props.placeholder}
-        onChange={props.onChange && props.onChange}
-        value={props.value}
+        type={type}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+        value={value}
+        onKeyPress={onKeyPress && onKeyPress}
+        maxLength={maxLength && maxLength}
       />
     </div>
   );

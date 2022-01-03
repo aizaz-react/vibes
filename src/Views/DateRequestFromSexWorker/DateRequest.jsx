@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import BankButton from "../OfferingProfileSection/Components/BankButton";
 
@@ -11,10 +11,12 @@ import SpecialRequest from "./DateRequestComponents/SpecialRequest";
 import StartDate from "./DateRequestComponents/StartDate";
 
 const DateRequest = () => {
+  const [rate, setRate] = useState(0);
   let history = useHistory();
   let handelNext = () => {
     history.push("/date-confirm-from-sex-worker");
   };
+
   return (
     <div
       className="div-background"
@@ -38,6 +40,7 @@ const DateRequest = () => {
         >
           Your Price For The Request:
         </p>
+        <RateInput onChange={setRate} placeholder="0$" />
         <div
           style={{
             display: "flex",
@@ -45,7 +48,8 @@ const DateRequest = () => {
             marginTop: "10px",
           }}
         >
-          <RateInput />
+
+          <RateInput onChange={setRate} placeholder="hello" />
         </div>
         <div style={{ marginBottom: "20px" }}>
           <BankButton title="Send Answer" onClick={handelNext} />

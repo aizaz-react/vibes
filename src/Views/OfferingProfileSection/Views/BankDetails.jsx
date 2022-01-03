@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./bankSection.css";
 
 import infoLog from "../../../assets/images/VibesInfo.svg";
@@ -8,32 +8,50 @@ import BankInput from "../Components/BankInput";
 import BankButton from "../Components/BankButton";
 import NavigationView from "../Components/NavigationView";
 import { useHistory } from "react-router";
+import { numberInputValidate } from "../../../functions/numberInput";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 
 const BankDetails = () => {
-  let history = useHistory();
+  const [name, setName] = useState("");
+  const [IBAN, setIBAN] = useState(0);
+  const [BIC, setBIC] = useState(0);
 
-  let handelNext = () => {
-    history.push("/date-request");
+  let history = useHistory();
+  const bankDetails = { name, IBAN, BIC };
+  let handelNext = async () => {
+    let userId = sessionStorage.getItem("userId");
+
+    try {
+      const userRef = doc(db, "users", userId);
+
+      await updateDoc(userRef, { bankDetails });
+      history.push("/date-request");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  let goBack = () => {
+    history.goBack();
   };
 
   return (
     <div className="div-background" style={{ height: "100vh" }}>
       <div className="bank-model">
-        {/* logo container */}
-
         <div className="logo-container">
-          <div>
+          <div onClick={goBack}>
             <img
               src={backIcon}
-              alt="Close Icon"
+              alt={backIcon}
               style={{ width: "13px", marginTop: "5px" }}
             />
           </div>
           <div>
-            <img src={infoLog} alt="Info Logo" style={{ width: "100px" }} />
+            <img src={infoLog} alt={infoLog} style={{ width: "100px" }} />
           </div>
-          <div>
-            <img src={closeIcon} alt="Close Icon" style={{ width: "15px" }} />
+          <div onClick={() => history.push("/")}>
+            <img src={closeIcon} alt={closeIcon} style={{ width: "15px" }} />
           </div>
         </div>
 
@@ -41,15 +59,28 @@ const BankDetails = () => {
         <div className="bank-title">
           <p>Vibes Id: #987153</p>
         </div>
-        {/* input fields section */}
         <div>
-          <BankInput placeholder="Name / Surname" />
+          <BankInput
+            name="name"
+            onChange={setName}
+            placeholder="Name / Surname"
+          />
         </div>
         <div>
-          <BankInput placeholder="IBAN________________________________________________" />
+          <BankInput
+            onChange={setIBAN}
+            onKeyPress={numberInputValidate}
+            name="IBAN"
+            maxLength={"16"}
+            placeholder="IBAN________________________________________________"
+          />
         </div>
         <div>
-          <BankInput placeholder="BIC________________________________________________" />
+          <BankInput
+            onChange={setBIC}
+            name="BIC"
+            placeholder="BIC________________________________________________"
+          />
         </div>
 
         {/* message section */}

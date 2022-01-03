@@ -2,21 +2,33 @@ import React, { useState, useEffect } from "react";
 import infoLog from "../../../assets/images/VibesInfo.svg";
 import closeIcon from "../../../assets/images/delete.svg";
 
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
+
 import NavigationView from "../Components/NavigationView";
 import Slider from "@material-ui/core/Slider";
 import { useHistory } from "react-router";
 import BankButton from "../Components/BankButton";
 import LogoSection from "../Components/LogoSection";
 const ExperienceLevel = () => {
-  const [sliderValue, setSliderValue] = useState(1);
+  const [sliderValue, setSliderValue] = useState("Open mind");
   let history = useHistory();
+  let handelNext = async () => {
+    let userId = sessionStorage.getItem("userId");
+    try {
+      const userRef = doc(db, "users", userId);
 
-  let handelNext = () => {
-    history.push("/demo-video");
+      await updateDoc(userRef, {
+        expereniceLevel: sliderValue,
+      });
+      history.push("/demo-video");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   let handleSliderChange = (e, v) => {
-    setSliderValue(v);
+    setSliderValue(sliderMarks[v].label);
   };
 
   let sliderMarks = [
@@ -50,7 +62,7 @@ const ExperienceLevel = () => {
             marks={sliderMarks}
             defaultValue={1}
             max={2}
-            value={sliderValue}
+            lebal={sliderValue}
             valueLabelDisplay="off"
             onChange={handleSliderChange}
           />

@@ -12,11 +12,13 @@ const TimeComponent = () => {
   let refDuration = useRef();
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [showDurationPicker, setShowDurationPicker] = useState(false);
+  const [hours, setHours] = useState("1 Hour");
 
   const [time, setTime] = useState({
     hour: "00",
     minutes: "00",
   });
+  let { hour, minutes } = time;
 
   let handelTimePickerShow = () => {
     setShowTimePicker(true);
@@ -27,13 +29,12 @@ const TimeComponent = () => {
   };
 
   let handelSlideChange = (e, name) => {
-    console.log(e.activeIndex);
     if (showTimePicker) {
-      // if (name === "hour") {
-      //   setTime({ ...time, hour: e.slides[e.activeIndex].innerHTML });
-      // } else {
-      //   setTime({ ...time, minutes: e.slides[e.activeIndex].innerHTML });
-      // }
+      if (name === "hour") {
+        setTime({ ...time, hour: e.slides[e.activeIndex].innerHTML });
+      } else {
+        setTime({ ...time, minutes: e.slides[e.activeIndex].innerHTML });
+      }
     }
   };
   let handelTimePickerHide = () => {
@@ -53,7 +54,9 @@ const TimeComponent = () => {
           <img src={timeImage} alt="time" />
         </div>
         <div className="time-section" onClick={handelTimePickerShow}>
-          <p>18:00</p>
+          <p>
+            {hour}:{minutes}
+          </p>
 
           <div
             style={{
@@ -201,7 +204,7 @@ const TimeComponent = () => {
           </div>
         </div>
         <div className="hour-section" onClick={handelDurationPickerShow}>
-          <p>2 Hours</p>
+          <p>{hours}</p>
           <div
             style={{
               background: "#FDFDFD",
@@ -238,6 +241,7 @@ const TimeComponent = () => {
               slideToClickedSlide={true}
               centeredSlides={true}
               className="swiper-container-duration "
+              onSlideChange={(e) => setHours(e.slides[e.activeIndex].innerHTML)}
             >
               <SwiperSlide className="swiper-item-duration">1 hour</SwiperSlide>
               <SwiperSlide className="swiper-item-duration">2 hour</SwiperSlide>

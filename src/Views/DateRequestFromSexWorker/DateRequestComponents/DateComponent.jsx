@@ -8,6 +8,7 @@ import "swiper/swiper.min.css";
 
 const DateComponent = () => {
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [date, setDate] = useState(moment().format("[Today] DD.MM.yyyy"));
   let ref = useRef();
 
   let getDateArray = () => {
@@ -38,7 +39,7 @@ const DateComponent = () => {
         <img src={calanderImage} alt="calander" />
       </div>
       <div className="date-string-container" onClick={handelDatePickerShow}>
-        <p className="date-string">27/08/2021</p>
+        <p className="date-string">{date}</p>
 
         <div
           style={{
@@ -74,6 +75,7 @@ const DateComponent = () => {
             direction={"vertical"}
             slideToClickedSlide={true}
             centeredSlides={true}
+            onSlideChange={(e) => setDate(e.slides[e.activeIndex].innerHTML)}
           >
             {getDateArray().map((item, index) => {
               return (

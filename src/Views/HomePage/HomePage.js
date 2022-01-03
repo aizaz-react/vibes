@@ -10,24 +10,39 @@ import { getMessaging, getToken } from "firebase/messaging";
 
 import selectIcon from "../../assets/images/selectCrossIcon.svg";
 import { useLocation } from "react-router";
+import { useHistory } from "react-router";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
 
 const Home1 = () => {
   let location = useLocation();
+  let history = useHistory();
 
   let isLogin = sessionStorage.getItem("isLogin");
   const [innerHeight, setInnerHeight] = useState(0);
+
+  const updateFCMToken = async (token) => {
+    let userId = sessionStorage.getItem("userId");
+    try {
+      const userRef = doc(db, "FCMtokens", userId);
+
+      await setDoc(userRef, { token });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const messaging = getMessaging();
     getToken(messaging, { vapidKey: vaPidKey })
       .then((currentToken) => {
         if (currentToken) {
+          updateFCMToken(currentToken);
         } else {
           // Show permission request UI
           console.log(
             "No registration token available. Request permission to generate one."
           );
-          // ...
         }
       })
       .catch((err) => {
@@ -168,10 +183,18 @@ const Home1 = () => {
   };
 
   let handelImageClick = (e) => {};
+  let handelLogin = () => {
+    history.push("/login");
+  };
 
   return (
     <div style={{ position: "relative" }}>
-      <CustomAlert show={isLogin !== null ? false : true} />
+      <CustomAlert show={isLogin !== null ? false : true}>
+        <p>
+          Result: 4 Escort and 6 Sexworker in 5 km. For full access:
+          <span onClick={handelLogin}>Login or Registration</span>
+        </p>
+      </CustomAlert>
 
       <div
         style={{

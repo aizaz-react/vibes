@@ -100,6 +100,7 @@ const Login = (props) => {
         signInWithPhoneNumber(auth, mobile, appVerifier)
           .then((confirmationResult) => {
             window.confirmationResult = confirmationResult;
+            console.log({confirmationResult})
             setLoading(false);
             history.push({
               pathname: "/verification",
