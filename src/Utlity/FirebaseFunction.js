@@ -82,4 +82,36 @@ let getUserData = async (userId) => {
   }
 };
 
-export { uploadFile, updateVideoUrl, updateImageUrl, getUserData };
+let notificationSend = (title, FCMtoken) => {
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization:
+        "key=AAAAFmbe9vg:APA91bHDXG_nYT2pP3NjX3bY9S2r0bwe6tVRQchWyie9Y3EPFL3VvIe3qCI-3Sp5_Cg_n4C1REo5frL6XsXn_CX9wtf6iE1L_ZiRSWyC18q4NxZUu3aSDHBmfrGb6lfeWBAcZU9XNVaR",
+    },
+    body: JSON.stringify({
+      notification: {
+        title: title,
+        message: "New Request From User",
+      },
+      data: {
+        title: title,
+        message: "New Request From User",
+      },
+      to: FCMtoken,
+    }),
+  };
+  fetch("https://fcm.googleapis.com/fcm/send", fetchOptions).then((response) =>
+    console.log({ response })
+  );
+};
+
+
+export {
+  uploadFile,
+  updateVideoUrl,
+  updateImageUrl,
+  getUserData,
+  notificationSend,
+};

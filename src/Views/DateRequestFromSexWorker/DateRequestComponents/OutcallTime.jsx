@@ -3,18 +3,18 @@ import TimeComponent from "./TimeComponent";
 
 const OutcallTime = (props) => {
   const [select, setSelect] = useState("Yes");
-
+  let { setTime, hours, setHours, time } = props;
   return (
     <>
       <div className="outcall-time-container">
         <div className="duration-container" style={{ marginBottom: "10px" }}>
           <div className="time">
             <p>Time:</p>
-            <p>17:00 - 23:00</p>
+            <p>{time}</p>
           </div>
           <div className="hours">
             <p>Hours:</p>
-            <p>2 Hours</p>
+            <p>{hours}</p>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ const OutcallTime = (props) => {
           marginBottom: "10px",
         }}
       >
-        <TimeComponent />
+        <TimeComponent setHours={setHours} setTime={setTime} />
       </div>
       <hr />
     </>

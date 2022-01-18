@@ -6,6 +6,7 @@ import englandFlage from "../../assets/images/flageEngland.svg";
 import "./bottomTabsOnlyLogin.css";
 import { setLanguage } from "../../redux/action/languageAction";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const BottomLine = () => {
   const [isEnglish, setIsEnglish] = useState(true);
@@ -39,7 +40,7 @@ const BottomLine = () => {
           onClick={handelGermen}
         />
       )}
-      <p style={{ fontSize: !isEnglish && "1rem" }}>Ger</p>
+      <p style={{ fontSize: "0.9rem" }}>Ger</p>
 
       {isEnglish ? (
         <img src={englandFlage} alt="England Flage" className="country-flage" />
@@ -62,17 +63,28 @@ const BottomLine = () => {
           onClick={handelEnglish}
         />
       )}
-      <p style={{ fontSize: !isEnglish && "1rem" }}>Eng</p>
+      <p style={{ fontSize: "0.9rem" }}>Eng</p>
       <div className="verticle-line"></div>
-      <p style={{ fontSize: !isEnglish && "1rem" }}>
+      <p style={{ fontSize: "0.9rem",textDecoration: "none" }}>
+        <Link
+          to="#"
+          onClick={(e) => {
+            window.location = "mailto:aizaz9790@gmail.com";
+            e.preventDefault();
+          }}
+          style={{ textDecoration: "none", color:"gray" }}
+        >
+          Email
+        </Link>
+      </p>
+      <div className="verticle-line"></div>
+      <p style={{ fontSize: "0.9rem" }}>
         {isEnglish ? "Support" : "Unterstützung"}
       </p>
       <div className="verticle-line"></div>
-      <p style={{ fontSize: !isEnglish && "1rem" }}>Impressum</p>
+      <p style={{ fontSize: "0.9rem" }}>Impressum</p>
       <div className="verticle-line"></div>
-      <p style={{ fontSize: !isEnglish && "1rem" }}>
-        {isEnglish ? "GTC" : "AGB"}
-      </p>
+      <p style={{ fontSize: "0.9rem" }}>{isEnglish ? "GTC" : "AGB"}</p>
     </div>
   );
 };

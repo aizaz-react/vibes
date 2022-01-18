@@ -1,6 +1,7 @@
 import React from "react";
 
-const PriceCalculator = () => {
+const PriceCalculator = ({ rate, hours, specialRequest }) => {
+  let hour = hours.split(" ");
   return (
     <div style={{ marginTop: "20px" }}>
       <p
@@ -21,10 +22,10 @@ const PriceCalculator = () => {
         }}
       >
         <p style={{ color: "gray", fontSize: "1.3rem", fontWeight: "500" }}>
-          Basic - 50$ X 2 hours
+          {`Basic - ${rate}$ X ${hours}`}
         </p>
         <p style={{ color: "gray", fontSize: "1.3rem", fontWeight: "500" }}>
-          100$
+          {rate * hour[0]}
         </p>
       </div>
       <div
@@ -38,7 +39,7 @@ const PriceCalculator = () => {
           Special Request
         </p>
         <p style={{ color: "gray", fontSize: "1.3rem", fontWeight: "500" }}>
-          + 100$
+          {`+ ${specialRequest}$`}
         </p>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -46,7 +47,7 @@ const PriceCalculator = () => {
           Total Amount
         </p>
         <p style={{ color: "gray", fontSize: "1.5rem", fontWeight: "bold" }}>
-          200$
+          {`${rate * hour[0] + specialRequest}$`}
         </p>
       </div>
     </div>

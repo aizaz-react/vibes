@@ -26,7 +26,7 @@ const BankDetails = () => {
       const userRef = doc(db, "users", userId);
 
       await updateDoc(userRef, { bankDetails });
-      history.push("/date-request");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }

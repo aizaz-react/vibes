@@ -13,6 +13,7 @@ import PostelCode from "../Components/PostelCode";
 import BankInput from "../Components/BankInput";
 import BankButton from "../Components/BankButton";
 import NavigationView from "../Components/NavigationView";
+import model1 from "../../../assets/images/model1.jpg";
 
 import { useHistory } from "react-router";
 import OutCallShare from "../Components/OutCallShare";
@@ -63,7 +64,12 @@ const CallInfoSection = () => {
     try {
       const userRef = doc(db, "users", userId);
 
-      await updateDoc(userRef, { sexWorkerData });
+      await updateDoc(userRef, {
+        escort: false,
+        ecsortData: {},
+        sexWorkerData,
+        offering: "sexWorker",
+      });
       history.push("/bankdetails-section");
     } catch (error) {
       console.log(error);
@@ -145,7 +151,7 @@ const CallInfoSection = () => {
             time="Beginsning 20's"
             rate="20$/Hour, Incall"
             location="02176, Berlin - Incall"
-            image={imageUrl}
+            image={!imageUrl ? model1 : model1}
           />
         </div>
         <div style={{ marginTop: "2rem" }}>

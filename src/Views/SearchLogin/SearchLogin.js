@@ -274,6 +274,7 @@ const SearchLogin = () => {
 
   let handelLogout = async () => {
     sessionStorage.removeItem("isLogin");
+    sessionStorage.clear();
     window.location.reload();
   };
 
@@ -281,19 +282,7 @@ const SearchLogin = () => {
     let uid = sessionStorage.getItem("userId");
     try {
       await deleteDoc(doc(db, "users", uid));
-
-      // auth()
-      //   .getUser("20aF90Q8v8dBkFdTHGJ2lb84qdj2")
-      //   .then((userRecord) => {
-      //     // See the UserRecord reference doc for the contents of userRecord.
-      //     console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
-      //   })
-      //   .catch((error) => {
-      //     console.log("Error fetching user data:", error);
-      //   });
-      sessionStorage.removeItem("isLogin");
-      sessionStorage.removeItem("userId");
-      window.location.reload();
+      handelLogout();
     } catch (error) {
       console.log(error);
     }
@@ -301,6 +290,7 @@ const SearchLogin = () => {
 
   return (
     <div
+      className={openBottom && "bottom-user-search-section-height"}
       className={
         openBottom && indecator === 0
           ? "bottom-user-search-section-height"
@@ -443,15 +433,61 @@ const SearchLogin = () => {
         </>
       ) : (
         <>
-          <div className="menu-line ">
+          {/* <div className="menu-line ">
             <div className="inside-menu-line">
               <p>Menu</p>
             </div>
-          </div>
+          </div> */}
+          {isLogin !== null && (
+            <>
+              <div
+                style={{
+                  marginTop: "10px",
+                  marginBottom: isLogin !== null ? "" : "20px",
+                }}
+              >
+                <button
+                  onClick={() => history.push("/bankdetails-receipt")}
+                  className="about-vibes"
+                >
+                  Financial Status
+                </button>
+              </div>
+              <div
+                style={{
+                  marginTop: "10px",
+                  marginBottom: isLogin !== null ? "" : "20px",
+                }}
+              >
+                <button
+                  onClick={() => history.push("/sexworker-section")}
+                  className="about-vibes"
+                >
+                  Profile Settings
+                </button>
+              </div>
+              <div
+                style={{
+                  marginTop: "10px",
+                  marginBottom: isLogin !== null ? "" : "20px",
+                }}
+              >
+                <button className="about-vibes">Add Profile</button>
+              </div>
+              <div
+                style={{
+                  marginTop: "10px",
+                  marginBottom: isLogin !== null ? "" : "20px",
+                }}
+              >
+                <button className="about-vibes">Vibes #Rules</button>
+              </div>
+            </>
+          )}
 
           <div
             style={{
-              marginTop: "30px",
+              marginTop: "10px",
               marginBottom: isLogin !== null ? "" : "20px",
             }}
           >
@@ -460,12 +496,12 @@ const SearchLogin = () => {
 
           {isLogin !== null && (
             <>
-              <div style={{ marginTop: "30px" }}>
+              <div style={{ marginTop: "10px" }}>
                 <button className="about-vibes" onClick={handelDelete}>
                   Delete Profile
                 </button>
               </div>
-              <div style={{ marginTop: "30px", marginBottom: "20px" }}>
+              <div style={{ marginTop: "10px", marginBottom: "20px" }}>
                 <button className="about-vibes" onClick={handelLogout}>
                   Logout
                 </button>
@@ -496,3 +532,6 @@ const SearchLogin = () => {
 };
 
 export default SearchLogin;
+const buttonStyle = {
+  marginTop: "10px 0px",
+};

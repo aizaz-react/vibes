@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 const SpecialRequest = (props) => {
-  const [select, setSelect] = useState("Yes");
-
+  let { specialRequest, setSpecialRequest } = props;
   return (
     <>
       <p
@@ -27,14 +26,18 @@ const SpecialRequest = (props) => {
           style={{ visibility: props.noAnswer ? "hidden" : "visible" }}
         >
           <div
-            className={`inside-selection ${select === "Yes" && "select-left"}`}
-            onClick={() => setSelect("Yes")}
+            className={`inside-selection ${
+              specialRequest === "Yes" && "select-left"
+            }`}
+            onClick={() => setSpecialRequest("Yes")}
           >
             Yes
           </div>
           <div
-            className={`inside-selection ${select === "No" && "select-right"}`}
-            onClick={() => setSelect("No")}
+            className={`inside-selection ${
+              specialRequest === "No" && "select-right"
+            }`}
+            onClick={() => setSpecialRequest("No")}
           >
             No
           </div>
@@ -44,7 +47,7 @@ const SpecialRequest = (props) => {
       <div
         className="special-request-text-container"
         style={{
-          display: select === "No" ? "flex" : "none",
+          display: specialRequest === "No" ? "flex" : "none",
           width: "60%",
           marginTop: "15px",
         }}

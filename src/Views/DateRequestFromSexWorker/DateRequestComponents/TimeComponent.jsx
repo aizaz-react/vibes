@@ -7,19 +7,18 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "./dateRequestComponents.css";
 
-const TimeComponent = () => {
+const TimeComponent = ({ setTime, setHours }) => {
   let ref = useRef();
   let refDuration = useRef();
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [showDurationPicker, setShowDurationPicker] = useState(false);
-  const [hours, setHours] = useState("1 Hour");
+  const [hours, setHours1] = useState("1 Hour");
 
-  const [time, setTime] = useState({
+  const [time, setTime1] = useState({
     hour: "00",
     minutes: "00",
   });
   let { hour, minutes } = time;
-
   let handelTimePickerShow = () => {
     setShowTimePicker(true);
   };
@@ -31,9 +30,9 @@ const TimeComponent = () => {
   let handelSlideChange = (e, name) => {
     if (showTimePicker) {
       if (name === "hour") {
-        setTime({ ...time, hour: e.slides[e.activeIndex].innerHTML });
+        setTime1({ ...time, hour: e.slides[e.activeIndex].innerHTML });
       } else {
-        setTime({ ...time, minutes: e.slides[e.activeIndex].innerHTML });
+        setTime1({ ...time, minutes: e.slides[e.activeIndex].innerHTML });
       }
     }
   };
@@ -46,6 +45,11 @@ const TimeComponent = () => {
 
   useOnClickOutside(ref, handelTimePickerHide);
   useOnClickOutside(refDuration, handelDurationPickerHide);
+
+  useEffect(() => {
+    setTime(hour + ":" + minutes);
+    setHours(hours);
+  }, [hour, minutes, hours]);
 
   return (
     <>
@@ -241,14 +245,16 @@ const TimeComponent = () => {
               slideToClickedSlide={true}
               centeredSlides={true}
               className="swiper-container-duration "
-              onSlideChange={(e) => setHours(e.slides[e.activeIndex].innerHTML)}
+              onSlideChange={(e) =>
+                setHours1(e.slides[e.activeIndex].innerHTML)
+              }
             >
-              <SwiperSlide className="swiper-item-duration">1 hour</SwiperSlide>
-              <SwiperSlide className="swiper-item-duration">2 hour</SwiperSlide>
-              <SwiperSlide className="swiper-item-duration">3 hour</SwiperSlide>
-              <SwiperSlide className="swiper-item-duration">4 hour</SwiperSlide>
-              <SwiperSlide className="swiper-item-duration">5 hour</SwiperSlide>
-              <SwiperSlide className="swiper-item-duration">6 hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">1 Hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">2 Hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">3 Hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">4 Hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">5 Hour</SwiperSlide>
+              <SwiperSlide className="swiper-item-duration">6 Hour</SwiperSlide>
               <SwiperSlide className="swiper-item-duration">
                 overnigh
               </SwiperSlide>

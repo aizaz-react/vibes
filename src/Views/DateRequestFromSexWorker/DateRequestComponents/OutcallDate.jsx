@@ -3,7 +3,7 @@ import DateComponent from "./DateComponent";
 
 const OutcallDate = (props) => {
   const [select, setSelect] = useState("Yes");
-
+  const { date, setDate } = props;
   return (
     <>
       <div>
@@ -16,9 +16,7 @@ const OutcallDate = (props) => {
             marginTop: "20px",
           }}
         >
-          <p style={{ fontSize: "1.2rem", color: "gray" }}>
-            Date: Today - Sa.24.07.2021
-          </p>
+          <p style={{ fontSize: "1.2rem", color: "gray" }}>Date:{date}</p>
           <div
             className="selection-container"
             style={{
@@ -54,7 +52,7 @@ const OutcallDate = (props) => {
           marginBottom: "10px",
         }}
       >
-        <DateComponent />
+        <DateComponent date={date} setDate={setDate} />
       </div>
       <hr />
     </>

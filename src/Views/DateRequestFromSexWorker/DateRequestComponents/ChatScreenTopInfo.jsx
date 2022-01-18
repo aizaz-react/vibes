@@ -18,6 +18,7 @@ const ChatScreenTopInfo = (props) => {
     border: "2px solid red",
     borderRadius: "10px",
   };
+  let { date, rate } = props;
 
   return (
     <div
@@ -52,10 +53,8 @@ const ChatScreenTopInfo = (props) => {
           </p>
           <p className="chat-screen-information">Beginning 20's</p>
           <p className="chat-screen-information">Berlin 5km</p>
-          <p className="chat-screen-information">35$/Hour</p>
-          <p className="chat-screen-information">
-            Sa 24.07.2021 at 19:00 for 2 hours
-          </p>
+          <p className="chat-screen-information">{rate}$/Hour</p>
+          <p className="chat-screen-information">{date}</p>
           <div
             className="logo-kc"
             style={{

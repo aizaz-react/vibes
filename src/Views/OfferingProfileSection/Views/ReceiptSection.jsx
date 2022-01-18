@@ -6,7 +6,10 @@ import CurrentlyDateComponent from "../Components/CurrentlyDateComponent";
 import CurrentlyDateHistoryComponent from "../Components/CurrentlyDateHistoryComponent";
 import BankButton from "../Components/BankButton";
 import ButtonWithInfo from "../Components/ButtonWithInfo";
+import { useHistory } from "react-router-dom";
+
 const ReceiptSection = () => {
+  const history = useHistory();
   return (
     <div
       className="div-background"
@@ -19,7 +22,7 @@ const ReceiptSection = () => {
           <div>
             <img src={infoLog} alt="Info Logo" style={{ width: "100px" }} />
           </div>
-          <div>
+          <div onClick={() => history.push("/")}>
             <img src={closeIcon} alt="Close Icon" style={{ width: "15px" }} />
           </div>
         </div>
@@ -243,7 +246,7 @@ const ReceiptSection = () => {
           <div>
             <BankButton title="Payout Order" />
           </div>
-          <div>
+          <div onClick={() => history.push("/bankdetails-section")}>
             <BankButton title="Change Bank Details" />
           </div>
           <div style={{ marginTop: "2rem" }}>

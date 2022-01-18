@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import BankButton from "../OfferingProfileSection/Components/BankButton";
 import LogoSection from "../OfferingProfileSection/Components/LogoSection";
@@ -10,6 +10,7 @@ import StartDate from "./DateRequestComponents/StartDate";
 
 const RequestAnswerFromSexWorker = () => {
   let history = useHistory();
+  const [accept, setAccept] = useState(true);
 
   let handelNext = () => {
     history.push("/date-chat");
@@ -25,7 +26,7 @@ const RequestAnswerFromSexWorker = () => {
     >
       <div className="bank-model">
         <LogoSection />
-        <StartDate noAnswer noTagLine />
+        <StartDate setAccept={setAccept} accept={accept} noAnswer noTagLine />
         <Outcall noAnswer />
         <OutcallDate />
         <OutcallTime />

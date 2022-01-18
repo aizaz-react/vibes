@@ -35,7 +35,7 @@
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   display: flex;
-  height: 455px;
+  height: 580px;
   transition: height 0.5s ease-in;
   flex-direction: column;
   align-items: center;
@@ -171,7 +171,7 @@
 .level-content-section {
   background: var(--text-box-background);
   width: 80vw;
-  display: flex;
+  display: none;
 
   height: 115px;
   position: absolute;
@@ -187,6 +187,7 @@
   font-size: 1.6rem;
   margin-top: 1rem;
   font-weight: bold;
+  display: none;
 }
 .level-content-section .lavel-info-css p {
   color: var(--lightGray);
@@ -194,6 +195,7 @@
   margin-top: 0.4rem;
   font-weight: bold;
   margin-left: 2rem;
+  display: none;
 }
 
 /* opacity section */

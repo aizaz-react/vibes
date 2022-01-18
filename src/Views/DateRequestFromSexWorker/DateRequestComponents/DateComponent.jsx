@@ -6,9 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
-const DateComponent = () => {
+const DateComponent = ({ date, setDate }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [date, setDate] = useState(moment().format("[Today] DD.MM.yyyy"));
   let ref = useRef();
 
   let getDateArray = () => {

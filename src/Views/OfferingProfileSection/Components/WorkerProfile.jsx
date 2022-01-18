@@ -1,6 +1,5 @@
 import React from "react";
 import "./bankComponents.css";
-import model1 from "../../../assets/images/model1.jpg";
 import uploadIcon from "../../../assets/images/uploadPlusIcon.svg";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -12,16 +11,12 @@ const WorkerProfile = ({
   uploadImage,
   loading,
   image,
-  ...props  
+  ...props
 }) => {
   return (
     <div className="profile-container">
       <div className="profile-image">
-        <img
-          src={image === null || undefined ? model1 : image}
-          alt="Image"
-          className="model-image"
-        />
+        <img src={image} alt="Image" className="model-image" />
         <div className="input-image">
           <label for="file-input">
             <img src={uploadIcon} alt="upload" className="upload-model-image" />

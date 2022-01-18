@@ -4,6 +4,7 @@ import "./bankComponents.css";
 import playIcon from "../../../assets/images/playButton.svg";
 
 const WorkerVideo = ({ playVideo, videoUrl }) => {
+  
   return (
     <div className="profile-video-container">
       <div className="profile-video">

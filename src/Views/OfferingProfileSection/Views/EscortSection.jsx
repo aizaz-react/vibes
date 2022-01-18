@@ -60,7 +60,11 @@ const EscortSection = () => {
       const userRef = doc(db, "users", userId);
 
       await updateDoc(userRef, {
+        offering: "escort",
+        sexWorker: false,
         ecsortData,
+        sexWorkerData: {},
+        
       });
       history.push("/bankdetails-section");
     } catch (error) {

@@ -41,6 +41,9 @@ const App = () => {
       <Route exact path="/">
         <HomePage />
       </Route>
+      {/* <Route exact path="/">
+        <Requests />
+      </Route> */}
 
       <Route exact path="/confirm">
         <ConfirmYou />
@@ -67,7 +70,7 @@ const App = () => {
         <ReceiptSection />
       </Route>
 
-      <Route exact path="/date-request">
+      <Route exact path="/date-request/:data">
         <DateRequest />
       </Route>
       <Route exact path="/date-chat">
@@ -76,13 +79,13 @@ const App = () => {
       <Route exact path="/date-confirm-from-sex-worker">
         <DateConfirmFromSexWorker />
       </Route>
-      <Route exact path="/request-from-sexworker">
+      <Route exact path="/request-from-sexworker/:id">
         <RequestFromSexWorker />
       </Route>
       <Route exact path="/qr-scanner-from-sexworker">
         <QrScannerFromSexWorker />
       </Route>
-      <Route exact path="/date-confirm-profile">
+      <Route exact path="/date-confirm-profile/:id">
         <DateConfirmProfileFromSexWorker />
       </Route>
       <Route exact path="/qr-code-profile">

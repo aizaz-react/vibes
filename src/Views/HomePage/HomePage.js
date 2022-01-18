@@ -11,29 +11,59 @@ import { getMessaging, getToken } from "firebase/messaging";
 import selectIcon from "../../assets/images/selectCrossIcon.svg";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  collection,
+  query,
+  where,
+  onSnapshot,
+} from "firebase/firestore";
 import { db } from "../../Firebase/firebase";
 
 const Home1 = () => {
   let location = useLocation();
   let history = useHistory();
-
+  const [requests, setRequests] = useState(false);
   let isLogin = sessionStorage.getItem("isLogin");
   const [innerHeight, setInnerHeight] = useState(0);
-
+  const [usersList, setUsersList] = useState([]);
   const updateFCMToken = async (token) => {
     let userId = sessionStorage.getItem("userId");
     try {
-      const userRef = doc(db, "FCMtokens", userId);
-
-      await setDoc(userRef, { token });
+      const userRef = doc(db, "users", userId);
+      await updateDoc(userRef, { token });
     } catch (error) {
       console.log(error);
     }
   };
 
+  let userId = sessionStorage.getItem("userId");
+
+  const getOffering = async () => {
+    let userId = sessionStorage.getItem("userId");
+    try {
+      const userRef = collection(db, "users");
+      const q = query(
+        userRef,
+        where("offering", "in", ["sexWorker", "escort"])
+      );
+      const unsub = onSnapshot(q, (querySnapshot) => {
+        let users = [];
+        querySnapshot.forEach((snapshot) => {
+          if (snapshot.data().userId === userId) return;
+          users.push(snapshot.data());
+        });
+        setUsersList(users);
+      });
+      return () => unsub();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
     const messaging = getMessaging();
+    getOffering();
     getToken(messaging, { vapidKey: vaPidKey })
       .then((currentToken) => {
         if (currentToken) {
@@ -182,7 +212,6 @@ const Home1 = () => {
     }
   };
 
-  let handelImageClick = (e) => {};
   let handelLogin = () => {
     history.push("/login");
   };
@@ -223,43 +252,128 @@ const Home1 = () => {
           <div className="grid-item-home1-empty"></div>
           <div className="grid-item-home1-empty"></div>
 
-          {modelImages.map((item, index) => {
-            return (
-              <div
-                className={
-                  isLogin !== null ? "grid-item-home1 " : "grid-item-home1-blur"
-                }
-                key={index}
-                id={`insid${index}`}
-                style={{ padding: "3px" }}
-                onClick={() => handelImageClick()}
-                style={{ position: "relative" }}
-              >
-                <img
-                  src={item.image}
-                  style={{
-                    border: `4px solid ${item.color}`,
-                    boxSizing: "border-box",
-                  }}
-                  alt="Model Profile"
-                />
+          {!isLogin &&
+            modelImages.map((item, index) => {
+              return (
                 <div
-                  style={{
-                    position: "absolute",
-                    bottom: "10px",
-                    right: "10px",
-                    display: location.state !== undefined ? "flex" : "none",
-                  }}
+                  className={
+                    isLogin !== null
+                      ? "grid-item-home1 "
+                      : "grid-item-home1-blur"
+                  }
+                  key={index}
+                  id={`insid${index}`}
+                  style={{ padding: "3px" }}
+                  style={{ position: "relative" }}
                 >
                   <img
-                    src={selectIcon}
-                    alt="select"
-                    style={{ width: "25px", height: "25px" }}
+                    src={item.image}
+                    style={{
+                      border: `4px solid ${item.color}`,
+                      boxSizing: "border-box",
+                    }}
+                    alt="Model Profile"
                   />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "10px",
+                      right: "10px",
+                      display: location.state !== undefined ? "flex" : "none",
+                    }}
+                  >
+                    <img
+                      src={selectIcon}
+                      alt="select"
+                      style={{ width: "25px", height: "25px" }}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          {isLogin && requests && usersList.length !== 0
+            ? usersList.map(({ imageUrl, escort, userId, token }, index) => (
+                <div
+                  className={
+                    isLogin !== null
+                      ? "grid-item-home1 "
+                      : "grid-item-home1-blur"
+                  }
+                  key={index}
+                  id={`insid${index}`}
+                  style={{ padding: "3px" }}
+                  style={{ position: "relative" }}
+                >
+                  <img
+                    src={imageUrl}
+                    style={{
+                      border: `4px solid ${escort ? "#173151" : "#577954"}`,
+                      boxSizing: "border-box",
+                    }}
+                    alt="Model Profile"
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "10px",
+                      right: "10px",
+                      display: "flex",
+                    }}
+                    onClick={() =>
+                      history.push(`/date-request/${userId},${token}`)
+                    }
+                  >
+                    <img
+                      src={selectIcon}
+                      alt="select"
+                      style={{ width: "25px", height: "25px" }}
+                    />
+                  </div>
+                </div>
+              ))
+            : modelImages.map((item, index) => {
+                return (
+                  <div
+                    className={
+                      isLogin !== null
+                        ? "grid-item-home1 "
+                        : "grid-item-home1-blur"
+                    }
+                    key={index}
+                    id={`insid${index}`}
+                    style={{ padding: "3px" }}
+                    style={{ position: "relative" }}
+                    onClick={() => {
+                      index === 0 && setRequests(true);
+                      index === 1 &&
+                        history.push(`/request-from-sexworker/${userId}`);
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      style={{
+                        border: `4px solid ${item.color}`,
+                        boxSizing: "border-box",
+                      }}
+                      alt="Model Profile"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "10px",
+                        right: "10px",
+                        display: location.state !== undefined ? "flex" : "none",
+                      }}
+                    >
+                      <img
+                        src={selectIcon}
+                        alt="select"
+                        style={{ width: "25px", height: "25px" }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
         </div>
       </div>
 
